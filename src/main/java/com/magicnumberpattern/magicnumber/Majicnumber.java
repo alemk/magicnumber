@@ -4,36 +4,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Scanner;
+
 
 @RestController
 public class Majicnumber
 {
-    @RequestMapping("/")
+    @RequestMapping("/magic")
     public String majicnumber(@RequestParam("number") int number)
     {
-        Scanner keyboard = new Scanner(System.in);
-        int holder = 0;
-        String container="";
+
+        int display = number;
+        String container=Integer.toString(number);
         do
         {
-            container += number;
-            if(number%3==0)
-            {
-                holder = (number * 3) + 1;
-                number = holder;
-                container += holder;
-            }
-            else if (number%2==0)
-            {
-                holder=(number/2);
-                number = holder;
-                container+=holder;
-            }
 
+            if(number%2==0)
+            {
+                number=(number/2);
+
+            }
+            else
+            {
+                number = (number * 3) + 1;
+
+            }
+            container += "    " + Integer.toString(number);
         }
+
         while(number>1);
-        return container;
+
+        return "starting number:   " + display + "<br/>" + container;
     }
 
 }
