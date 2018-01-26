@@ -13,7 +13,6 @@ public class Majicnumber
     public String majicnumber(@RequestParam("number") int number)
     {
         Scanner keyboard = new Scanner(System.in);
-        int number = keyboard.nextInt();
         int holder = 0;
         String container="";
         do
